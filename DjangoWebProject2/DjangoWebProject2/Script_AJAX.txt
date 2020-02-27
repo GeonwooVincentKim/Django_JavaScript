@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="../../static/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(
+            function () {
+                setInterval("updateTime()", 1000);
+            });
+
+        function updateTime() {
+            $.ajax({
+                url: "template/Blog/current_datetime.html",
+                type: "get",
+                cache: false,
+                success: function (data) {
+                    $("span").html(data);
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Real Time Stamp</h1>
+    {% block content %}{% endblock %}
+</body>
+</html>

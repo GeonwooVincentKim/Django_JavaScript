@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>test...</title>
+</head>
+
+<body>
+    <!--<div><b>Real Time Information</b></div>
+    <div><p>Real Time : </p></div>-->
+    <script src="/static/apps/js/jquery-3.4.1.js"></script>
+    <script src="/static/apps/js/moment.js"></script>
+    <script>
+        function updateTime() {
+            $('.time-container>h1').html(moment().format('MMM. D, YYYY, h:mm:ss a'));
+        };
+        updateTime();
+        setInterval(function () {
+            updateTime();
+        }, 1000);
+    </script>
+    <!--<div id="label">
+    </div>-->
+    <div class="time-container">
+        <h1>{{ current_date }}</h1>
+    </div>
+</body>
+</html>

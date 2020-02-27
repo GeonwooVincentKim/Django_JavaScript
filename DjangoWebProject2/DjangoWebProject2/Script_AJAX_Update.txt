@@ -1,0 +1,17 @@
+$(document).ready(
+            function () {
+                setInterval("updateTime()", 1000);
+         
+            }());
+
+        function updateTime() {
+            $.ajax({
+                url: "/apps/index.html",
+                type: "get",
+                cache: false,
+                success: function (data) {
+                     $("#label").html(data);
+                }
+               
+            });
+        }
